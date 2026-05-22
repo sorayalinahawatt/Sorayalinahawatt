@@ -14,6 +14,12 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Foolproof Animation Check -->
+    <script>
+        // This tiny script immediately tells the CSS that JavaScript is working safely.
+        document.documentElement.classList.add('js-enabled');
+    </script>
+
     <style>
         /* CSS Variables: Oxford Blue, Antique Gold, Parchment */
         :root {
@@ -515,20 +521,36 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* Simplified for safe mode */
+                display: none; 
             }
-            
             nav {
                 padding: 1rem 5%;
             }
-
             section {
                 padding: 5rem 5%;
             }
-            
             .hero h1 {
                 font-size: 3rem;
             }
+        }
+
+        /* BULLETPROOF ANIMATIONS */
+        /* By default, everything is set up to animate smoothly, but is completely visible. */
+        .reveal {
+            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ONLY if the tiny script at the top worked (meaning JS is active), 
+           do we hide the elements and push them down to prepare for the animation. */
+        html.js-enabled .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* When the item scrolls onto the screen, this class snaps it back into view. */
+        html.js-enabled .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -549,30 +571,30 @@
 
     <header class="hero" id="home">
         <div class="hero-inner">
-            <h1>Soraya Lina Hawatt</h1>
-            <p class="subtitle">International Relations • Youth Diplomat • Climate Advocate</p>
-            <p class="desc">A young voice in diplomacy, international relations, climate leadership, and public discourse.</p>
-            <a href="#about" class="btn">Explore Portfolio</a>
+            <h1 class="reveal">Soraya Lina Hawatt</h1>
+            <p class="subtitle reveal" style="transition-delay: 0.1s;">International Relations • Youth Diplomat • Climate Advocate</p>
+            <p class="desc reveal" style="transition-delay: 0.2s;">A young voice in diplomacy, international relations, climate leadership, and public discourse.</p>
+            <a href="#about" class="btn reveal" style="transition-delay: 0.3s;">Explore Portfolio</a>
         </div>
     </header>
 
     <section id="focus">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Areas of Expertise</h2>
             <div class="divider"></div>
         </div>
         <div class="focus-grid">
-            <div class="focus-card">
+            <div class="focus-card reveal">
                 <i class="fas fa-globe-africa"></i>
                 <h3>Diplomacy & Public Discourse</h3>
                 <p>Advancing international dialogue, representing youth perspectives in global governance spaces, and analyzing complex geopolitical narratives.</p>
             </div>
-            <div class="focus-card">
+            <div class="focus-card reveal" style="transition-delay: 0.1s;">
                 <i class="fas fa-leaf"></i>
                 <h3>Climate Leadership</h3>
                 <p>Leading environmental advocacy as President of United Climate Youth Morocco, bridging the gap between grassroots action and high-level policy.</p>
             </div>
-            <div class="focus-card">
+            <div class="focus-card reveal" style="transition-delay: 0.2s;">
                 <i class="fas fa-landmark"></i>
                 <h3>International Relations</h3>
                 <p>Pursuing rigorous academic studies in International Relations and Law at UM6P, with a focus on human rights, debate, and global cooperation.</p>
@@ -581,17 +603,17 @@
     </section>
 
     <section id="about" style="background-color: var(--white);">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Biography</h2>
             <div class="divider"></div>
         </div>
         <div class="about-wrapper">
-            <div class="about-image-container">
+            <div class="about-image-container reveal">
                 <div class="about-image">
                     <img src="DB4CEEFE-715A-4BA6-933A-F968BE1D6329.jpg" alt="Soraya Lina Hawatt Portrait">
                 </div>
             </div>
-            <div class="about-content">
+            <div class="about-content reveal" style="transition-delay: 0.2s;">
                 <h3>Bridging Perspectives on the Global Stage</h3>
                 <p>Soraya Lina Hawatt is a student of International Relations with a minor in Law at UM6P. She is a recognized youth climate leader and an active advocate for international dialogue and diplomacy.</p>
                 <p>Raised in Australia with a strong intercultural background, her upbringing deeply informs her approach to global affairs. As an international debater, she has represented bilateral perspectives in competitive championships, developing a sharp, analytical voice in public discourse.</p>
@@ -603,22 +625,22 @@
     </section>
 
     <section id="experience" class="experience">
-        <div class="section-header">
+        <div class="section-header reveal">
             <h2>Featured Experience</h2>
             <div class="divider"></div>
         </div>
         <div class="timeline">
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-date">Current</div>
                 <h3 class="timeline-title">President, United Climate Youth Morocco</h3>
                 <p class="timeline-desc">Directing regional climate advocacy initiatives, coordinating youth leadership programs, and developing policy recommendations for international climate action frameworks.</p>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-date">Ongoing</div>
                 <h3 class="timeline-title">UN / ECOSOC & Diplomatic Forums</h3>
                 <p class="timeline-desc">Participating in high-level committees and international forums focused on human rights in external action and sustainable global governance.</p>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item reveal">
                 <div class="timeline-date">Academic & Advocacy</div>
                 <h3 class="timeline-title">International Debater & Analyst</h3>
                 <p class="timeline-desc">Competing in international debate arenas, engaging in rigorous documentary analysis, and publishing thought leadership on diplomacy and contemporary international relations.</p>
@@ -627,22 +649,53 @@
     </section>
 
     <footer id="contact">
-        <a href="#home" class="footer-logo">
+        <a href="#home" class="footer-logo reveal">
             <img src="32f116d1-bf3c-4dae-8c36-e1c95b6f58ec.png" alt="SLH Emblem">
         </a>
         
-        <a href="mailto:sorayalinahawatt@gmail.com" class="contact-email">sorayalinahawatt@gmail.com</a>
+        <a href="mailto:sorayalinahawatt@gmail.com" class="contact-email reveal" style="transition-delay: 0.1s;">sorayalinahawatt@gmail.com</a>
         
-        <div class="social-links">
+        <div class="social-links reveal" style="transition-delay: 0.2s;">
             <a href="https://www.linkedin.com/in/soraya-lina-hawatt/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             <a href="mailto:sorayalinahawatt@gmail.com" aria-label="Email"><i class="far fa-envelope"></i></a>
             <a href="#" aria-label="Publications/Substack"><i class="fas fa-pen-nib"></i></a>
         </div>
-        <p class="footer-text">
+        <p class="footer-text reveal" style="transition-delay: 0.3s;">
             &copy; 2024 Soraya Lina Hawatt. All rights reserved. <br><br>
             Diplomacy &nbsp;&bull;&nbsp; Climate &nbsp;&bull;&nbsp; International Relations
         </p>
     </footer>
 
+    <!-- Scripts for Animation -->
+    <script>
+        // Wait until the website is fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            // Check if the browser supports animations
+            if ('IntersectionObserver' in window) {
+                const revealOptions = {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px"
+                };
+
+                const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, revealOptions);
+
+                revealElements.forEach(el => {
+                    revealOnScroll.observe(el);
+                });
+            } else {
+                // If the browser is too old or blocking things, just force everything to be visible
+                revealElements.forEach(el => el.classList.add('active'));
+            }
+        });
+    </script>
 </body>
 </html>
