@@ -28,7 +28,6 @@
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -60,24 +59,16 @@
             transition: var(--transition);
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: transparent;
-            padding: 2rem 5%;
+            background-color: var(--oxford-blue);
+            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: var(--transition);
-            border-bottom: 1px solid transparent;
-        }
-
-        nav.scrolled {
-            background-color: var(--oxford-blue);
-            padding: 1rem 5%;
             border-bottom: 1px solid var(--gold-light);
         }
 
@@ -90,7 +81,6 @@
             height: 65px; 
             width: auto;
             mix-blend-mode: lighten;
-            transition: var(--transition);
         }
 
         .nav-links {
@@ -124,12 +114,8 @@
 
         .hamburger {
             display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--antique-gold);
         }
 
-        /* Hero Section - Oxford Style */
         .hero {
             height: 100vh;
             background-color: var(--oxford-blue);
@@ -256,7 +242,6 @@
             border-color: var(--oxford-dark);
         }
 
-        /* Layout Sections */
         section {
             padding: 8rem 5%;
         }
@@ -279,7 +264,6 @@
             margin: 0 auto;
         }
 
-        /* 3-Column Focus Grid */
         .focus-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -332,7 +316,6 @@
             line-height: 1.8;
         }
 
-        /* About Section */
         .about-wrapper {
             display: flex;
             align-items: center;
@@ -386,7 +369,6 @@
             line-height: 1.8;
         }
 
-        /* Experience Timeline */
         .experience {
             background-color: var(--oxford-blue);
             color: var(--parchment);
@@ -422,7 +404,7 @@
             width: 7px;
             height: 7px;
             background-color: var(--antique-gold);
-            transform: rotate(45deg); /* Diamond shape */
+            transform: rotate(45deg); 
         }
 
         .timeline-date {
@@ -449,7 +431,6 @@
             font-weight: 300;
         }
 
-        /* Footer */
         footer {
             background-color: var(--oxford-dark);
             color: var(--parchment);
@@ -489,7 +470,7 @@
             line-height: 45px;
             border: 1px solid var(--gold-light);
             transition: var(--transition);
-            border-radius: 2px; /* Slight rounding for old-world feel */
+            border-radius: 2px;
         }
 
         .social-links a:hover {
@@ -520,7 +501,6 @@
             text-transform: uppercase;
         }
 
-        /* Responsive Design */
         @media (max-width: 900px) {
             .about-wrapper {
                 flex-direction: column;
@@ -535,36 +515,11 @@
 
         @media (max-width: 768px) {
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--oxford-blue);
-                flex-direction: column;
-                align-items: center;
-                padding: 3rem 0;
-                gap: 2rem;
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-                transition: var(--transition);
-                border-top: 1px solid var(--gold-light);
-                border-bottom: 1px solid var(--gold-light);
-            }
-
-            .nav-links.active {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
+                display: none; /* Simplified for safe mode */
             }
             
             nav {
-                background-color: var(--oxford-blue);
                 padding: 1rem 5%;
-            }
-
-            .hamburger {
-                display: block;
             }
 
             section {
@@ -575,18 +530,119 @@
                 font-size: 3rem;
             }
         }
+    </style>
+</head>
+<body>
 
-        /* Scroll Reveal Animations */
-        .reveal {
-            opacity: 1;
-            transform: translateY(0px);
-            transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
+    <nav id="navbar">
+        <a href="#home" class="logo">
+            <img src="32f116d1-bf3c-4dae-8c36-e1c95b6f58ec.png" alt="SLH Emblem">
+        </a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Biography</a></li>
+            <li><a href="#focus">Focus</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </script>
+    <header class="hero" id="home">
+        <div class="hero-inner">
+            <h1>Soraya Lina Hawatt</h1>
+            <p class="subtitle">International Relations • Youth Diplomat • Climate Advocate</p>
+            <p class="desc">A young voice in diplomacy, international relations, climate leadership, and public discourse.</p>
+            <a href="#about" class="btn">Explore Portfolio</a>
+        </div>
+    </header>
+
+    <section id="focus">
+        <div class="section-header">
+            <h2>Areas of Expertise</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="focus-grid">
+            <div class="focus-card">
+                <i class="fas fa-globe-africa"></i>
+                <h3>Diplomacy & Public Discourse</h3>
+                <p>Advancing international dialogue, representing youth perspectives in global governance spaces, and analyzing complex geopolitical narratives.</p>
+            </div>
+            <div class="focus-card">
+                <i class="fas fa-leaf"></i>
+                <h3>Climate Leadership</h3>
+                <p>Leading environmental advocacy as President of United Climate Youth Morocco, bridging the gap between grassroots action and high-level policy.</p>
+            </div>
+            <div class="focus-card">
+                <i class="fas fa-landmark"></i>
+                <h3>International Relations</h3>
+                <p>Pursuing rigorous academic studies in International Relations and Law at UM6P, with a focus on human rights, debate, and global cooperation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" style="background-color: var(--white);">
+        <div class="section-header">
+            <h2>Biography</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="about-wrapper">
+            <div class="about-image-container">
+                <div class="about-image">
+                    <img src="DB4CEEFE-715A-4BA6-933A-F968BE1D6329.jpg" alt="Soraya Lina Hawatt Portrait">
+                </div>
+            </div>
+            <div class="about-content">
+                <h3>Bridging Perspectives on the Global Stage</h3>
+                <p>Soraya Lina Hawatt is a student of International Relations with a minor in Law at UM6P. She is a recognized youth climate leader and an active advocate for international dialogue and diplomacy.</p>
+                <p>Raised in Australia with a strong intercultural background, her upbringing deeply informs her approach to global affairs. As an international debater, she has represented bilateral perspectives in competitive championships, developing a sharp, analytical voice in public discourse.</p>
+                <p>Looking toward future public leadership, Soraya combines intellectual seriousness with strategic ambition, aiming to contribute significantly to African geopolitics, climate policy, and international cooperation.</p>
+                <br>
+                <a href="#contact" class="btn btn-solid">Contact for Media or Speaking</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="section-header">
+            <h2>Featured Experience</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">Current</div>
+                <h3 class="timeline-title">President, United Climate Youth Morocco</h3>
+                <p class="timeline-desc">Directing regional climate advocacy initiatives, coordinating youth leadership programs, and developing policy recommendations for international climate action frameworks.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Ongoing</div>
+                <h3 class="timeline-title">UN / ECOSOC & Diplomatic Forums</h3>
+                <p class="timeline-desc">Participating in high-level committees and international forums focused on human rights in external action and sustainable global governance.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Academic & Advocacy</div>
+                <h3 class="timeline-title">International Debater & Analyst</h3>
+                <p class="timeline-desc">Competing in international debate arenas, engaging in rigorous documentary analysis, and publishing thought leadership on diplomacy and contemporary international relations.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <a href="#home" class="footer-logo">
+            <img src="32f116d1-bf3c-4dae-8c36-e1c95b6f58ec.png" alt="SLH Emblem">
+        </a>
+        
+        <a href="mailto:sorayalinahawatt@gmail.com" class="contact-email">sorayalinahawatt@gmail.com</a>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/soraya-lina-hawatt/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:sorayalinahawatt@gmail.com" aria-label="Email"><i class="far fa-envelope"></i></a>
+            <a href="#" aria-label="Publications/Substack"><i class="fas fa-pen-nib"></i></a>
+        </div>
+        <p class="footer-text">
+            &copy; 2024 Soraya Lina Hawatt. All rights reserved. <br><br>
+            Diplomacy &nbsp;&bull;&nbsp; Climate &nbsp;&bull;&nbsp; International Relations
+        </p>
+    </footer>
+
 </body>
 </html>
